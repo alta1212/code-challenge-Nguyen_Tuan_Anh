@@ -1,0 +1,54 @@
+{
+  "phone": [
+    {
+      "id": "1",
+      "name": "iPhone 12",
+      "description": "Apple's latest phone"
+    },
+    {
+      "id": "2",
+      "name": "Samsung Galaxy S21",
+      "description": "Samsung's latest Galaxy phone"
+    },
+    {
+      "id": "3",
+      "name": "Google Pixel 5",
+      "description": "Google's latest phone "
+    },
+    {
+      "id": "4",
+      "name": "OnePlus 9 Pro",
+      "description": "OnePlus's latest phone"
+    },
+    {
+      "id": "5",
+      "name": "Xiaomi Mi 11",
+      "description": "Xiaomi's latest phone"
+    },
+    {
+      "id": "6",
+      "name": "Sony Xperia 1 III",
+      "description": "Sony latest phone"
+    },
+    {
+      "id": "7",
+      "name": "Huawei P40 Pro",
+      "description": "Huawei' latest phone"
+    },
+    {
+      "id": "8",
+      "name": "Oppo Find X3 Pro",
+      "description": "Oppo's latest phone"
+    },
+    {
+      "id": "9",
+      "name": "LG Velvet",
+      "description": "LG's  latest phone"
+    },
+    {
+      "id": "10",
+      "name": "Motorola Edge+",
+      "description": "Motorola's latest phone"
+    }
+  ]
+}
