@@ -22,13 +22,22 @@ function IndexView() {
             });
             return;
        }
-        const user=await axios.post(`${base_url}/login`,{name:name})
-        toast.success({
-            title: 'Success!',
-            description: 'Login successfully',
-        });
-       sessionStorage.setItem('user',user.data)
-       setDataUser(user.data.data)
+       try {
+            const user=await axios.post(`${base_url}/login`,{name:name})
+        
+            toast.success({
+                title: 'Success!',
+                description: 'Login successfully',
+            });
+            sessionStorage.setItem('user',user.data)
+            setDataUser(user.data.data)
+       } catch (error) {
+            toast.error({
+                title: 'Error!',
+                description: 'Something went wrong',
+            });
+       }
+
     }
 
     const handleEnterName = (e) => {
@@ -46,12 +55,18 @@ function IndexView() {
             setDataUser(null)
             return;
         }
-        const respone=await axios.post(`${base_url}/scores/update`,{name:dataUser.name},{headers:{'authorization':`Bearer ${dataUser.tokens}`}})
+        axios.post(`${base_url}/scores/update`,{name:dataUser.name},{headers:{'authorization':`Bearer ${dataUser.tokens}`}}).then(res=>{
+            toast.success({
+                title: 'Success!',
+                description: 'Update score successfully',
+            });
+        }).cath(err=>{
+            toast.error({
+                title: 'Error!',
+                description: 'Something went wrong',
+            });
+        })  
         
-        toast.success({
-            title: 'Success!',
-            description: 'Update score successfully',
-        });
 
     }
  
@@ -67,24 +82,31 @@ function IndexView() {
 
 
     useEffect(() => {
-       
-        axios.get(`${base_url}/scores/top10`).then(res=>{
-            setScoreBroad(res.data.scores)
-        })
-        
-       //check user login
-        const user=sessionStorage.getItem('user')
-        if(user!=null)
-        {
+        try {
+            axios.get(`${base_url}/scores/top10`).then(res=>{
+                setScoreBroad(res.data.scores)
+            })
+            
+            //check user login
+            const user=sessionStorage.getItem('user')
+            if(user!=null)
+            {
                 setDataUser(user)
-        }
-        const newSocket = io(socket_url); 
-        setSocket(newSocket);
-        return () => {
-            if (newSocket.readyState === 1) { 
-                newSocket.close();
             }
+            const newSocket = io(socket_url); 
+            setSocket(newSocket);
+            return () => {
+                if (newSocket.readyState === 1) { 
+                    newSocket.close();
+                }
+            }
+        } catch (error) {
+            toast.error({
+                title: 'Error!',
+                description: 'Something went wrong',
+            });
         }
+       
     }, []);
 
 

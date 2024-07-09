@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a simple CRUD application built with ExpressJS and TypeScript, using `socket.io` for real-time score updates. 
+This is a simple application built with ExpressJS and TypeScript, using `socket.io` for real-time score updates. 
 
 ## Features
 
@@ -38,7 +38,7 @@ This is a simple CRUD application built with ExpressJS and TypeScript, using `so
    Modify .env files to include your own environment variables.
 
 7. **Run project on both fontend and backend directory:**<br>
-   `npm start`
+   `npm start`<br>
    Frontend defaul port : 3000
    Backend default port : 3005
 
@@ -50,14 +50,13 @@ This is a simple CRUD application built with ExpressJS and TypeScript, using `so
 
 - **GET /api/score/top10** : List top 10 user highest score.
 - **POST /api/scores/update** : Increase current login user score.
-- **POST /api/login** : User login..
+- **POST /api/login** : User login.
 
 
 ## How it work
 ```javascript
 Each user when login will have a unique id , when send update score will send with token and find that user, web socket will send new score to all curren login user to update score.
 
-User much login to increase score
 ```
 
 
