@@ -44,6 +44,10 @@ Example payload:
 - **DELETE /api/resources/:id** : Delete a phone.
 - **GET /api/resources/:id** : Get a phone details.
 
+## Testing
+```javascript
+npm run test
+```
 ## Building for Production
     1. Build the project:
     npm run build
@@ -52,5 +56,6 @@ Example payload:
     npm run serve
 
     The application will be running at http://localhost:3000.
+   
 
 
